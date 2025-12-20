@@ -1,14 +1,15 @@
-export default function FilterLayout({
-  children,
-  sidebar,
-}: {
+import css from "./layout.module.css";
+
+interface FilterLayoutProps {
   children: React.ReactNode;
   sidebar: React.ReactNode;
-}) {
+}
+
+export default function FilterLayout({ children, sidebar }: FilterLayoutProps) {
   return (
-    <div style={{ display: "flex", gap: 24 }}>
-      <aside>{sidebar}</aside>
-      <section>{children}</section>
-    </div>
+    <section className={css.container}>
+      <aside className={css.sidebar}>{sidebar}</aside>
+      <div className={css.notesWrapper}>{children}</div>
+    </section>
   );
 }
